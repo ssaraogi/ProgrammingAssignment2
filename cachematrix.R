@@ -3,10 +3,10 @@
 
 ## makeCacheMatrix creates a special "matrix" that can cache its inverse.
 ## The special "matrix" is really a list containing functions to
-## 1. set the value of the matrix
-## 2. get the value of the matrix
-## 3. set the value of the inverse of the matrix
-## 4. get the value of the inverse of the matrix
+## 1. set: set the value of the matrix
+## 2. get: get the value of the matrix
+## 3. setinverse: set the value of the inverse of the matrix
+## 4. getinverse: get the value of the inverse of the matrix
 
 makeCacheMatrix <- function(matrix = matrix()) {
     matrix_inv <- NULL
@@ -36,7 +36,7 @@ makeCacheMatrix <- function(matrix = matrix()) {
     )
 }
 
-## The following function calculates the inverse of the special  "matrix"
+## The following function calculates the inverse of the special "matrix"
 ## returned by makeCacheMatrix. However, it first checks to see if the inverse
 ## has already been calculated. If so, it gets the inverse from the cache and
 ## skips the computation. Otherwise, it calculates the inverse of the matrix and
@@ -64,7 +64,7 @@ cacheSolve <- function(cache_matrix, ...) {
     ## Calculate inverse of the matrix
     matrix_inv <- solve(matrix, ...)
 
-    ## Cache the inversion of the matrix in the cache matrix object
+    ## Cache the inverse of the matrix in the cache matrix object
     cache_matrix$setinverse(matrix_inv)
 
     ## return the inverse of the matrix
